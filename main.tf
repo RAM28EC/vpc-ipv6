@@ -22,10 +22,7 @@ resource "aws_subnet" "public_ipv6_subnets" {
   count = length(var.pubsubnets)
   publicsubnet = var.pubsubnets[count.index]
   cidr_block = var.pubsubnets
-  availability_zone = "${var.aws_region}${var.azs[count.index]}"
-
-  ipv6_cidr_block = "${local.ipv6_cidrs}"
-  ipv4_cidr_block = "${local.ipv4_cidrs}"
+  availability_zone = "${var.aws_region}${var.azs[count.inde
   assign_ipv6_address_on_creation = true
   map_public_ip_on_launch = true
 
@@ -38,8 +35,6 @@ resource "aws_subnet" "private_ipv6_subnets" {
   vpc_id     = aws_vpc.ipv6_vpc.id
   count = length(var.privsubnets)
   privatesubnet = var.privsubnets[count.index]
-  ipv6_cidr_block = "${local.ipv6_cidrs}"
-  ipv4_cidr_block = "${local.ipv4_cidrs}"
   cidr_block = var.privsubnets
   availability_zone = "${var.aws_region}${var.azs[count.index]}"
 
