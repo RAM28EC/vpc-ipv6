@@ -6,7 +6,7 @@ variable "aws_region" {
 #Choosing the AZ's to use in the region
 variable "azs" {
   description = "AZ Infomration"
-  type = "list"
+  type = list(string)
   default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
 }
@@ -18,7 +18,7 @@ variable "cidr" {
 #Public IPv4 Subnet Space
 variable "pubsubnets" {
   description = "IPv4 Public Subnet"
-  type = "list"
+  type = list(string)
   default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
